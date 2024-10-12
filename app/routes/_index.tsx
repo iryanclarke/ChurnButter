@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Button, Input } from "@milk";
+import { Link } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,24 +11,38 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
+    <div className="h-screen w-screen bg-stone-100">
+      <nav className="flex items-center gap-4 rounded-3xl p-2 dark:border-gray-700">
+        <img
+          src="/churnbutter.png"
+          alt="ChurnButter"
+          className="w-8 border rounded"
+        />
         <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-4xl font-bold text-gray-800 dark:text-gray-100">
+          <h1 className="leading text-xl font-bold text-gray-800 dark:text-gray-100">
             ChurnButter
           </h1>
         </header>
-        <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <form>
+      </nav>
+      <main className="w-full h-full flex items-center justify-center">
+        <div className="p-8 bg-background rounded-md">
+          <form className="w-full flex flex-col gap-4">
             <Input type="email" placeholder="Email" />
             <Input type="password" placeholder="Password" />
           </form>
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
-            What&apos;s next?
-          </p>
-          <Button>Meep</Button>
-        </nav>
-      </div>
+          <div className="flex gap-4">
+            <Button className="flex-1" variant="secondary">
+              Create account
+            </Button>
+            <Button className="flex-1">Sign in</Button>
+          </div>
+          <div className="flex w-full justify-end">
+            <Button asChild variant="link">
+              <Link to="/dashboard">Forgot password?</Link>
+            </Button>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
