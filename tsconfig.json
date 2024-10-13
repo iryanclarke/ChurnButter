@@ -25,7 +25,10 @@
     "paths": {
       "~/*": ["./app/*"],
       "@milk": ["./app/components/milk"],
-      "@shared": ["./app/components/shared"]
+      "@shared": ["./app/components/shared"],
+      "@shared/*": ["./app/components/shared/*"],
+      "@utils/*": ["./app/utils/*"],
+      "@integrations/*": ["./app/integrations/*"],
     },
 
     // Vite takes care of building everything, not tsc.
